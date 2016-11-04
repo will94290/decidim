@@ -17,6 +17,12 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim-api.graphiql" do |_app|
+        GraphiQL::Rails.config.tap do |config|
+          config.query_params = true
+        end
+      end
     end
   end
 end
