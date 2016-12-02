@@ -2,6 +2,10 @@
 require_dependency "decidim/components/route_constraint"
 
 Decidim::Core::Engine.routes.draw do
+  mount Decidim::Api::Engine => "/api"
+  mount Decidim::Admin::Engine => "/admin"
+  mount Decidim::System::Engine => "/system"
+
   devise_for :users,
              class_name: "Decidim::User",
              module: :devise,
