@@ -18,11 +18,11 @@
   </div>
   <% if current_participatory_process.features.any? %>
     <div class="row column">
-      <div class="process-nav">
+      <div class="process-nav" id="process-nav">
         <div class="row column process-nav__content">
           <ul>
             <li>
-              <%= active_link_to decidim.participatory_process_path(current_participatory_process), active: :exact, class: "process-nav__link", class_active: "is-active" do %>
+              <%= active_link_to decidim.participatory_process_path(current_participatory_process, anchor: "process-nav"), active: :exact, class: "process-nav__link", class_active: "is-active" do %>
                 <%= icon "process" %>
                 <%= t ".process_menu_item" %>
               <% end %>
@@ -30,7 +30,7 @@
 
             <% current_participatory_process.features.each do |feature| %>
               <li>
-                <%= active_link_to decidim.feature_path(current_participatory_process, feature), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
+                <%= active_link_to decidim.feature_path(current_participatory_process, feature, anchor: "process-nav"), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
                   <%= feature_icon(feature) %>
 
                   <%= translated_attribute(feature.name) %>
