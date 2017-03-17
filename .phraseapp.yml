@@ -1,0 +1,21 @@
+phraseapp:
+  push:
+    sources:
+    - file: decidim-core/config/locales/*.yml
+      project_id: 9107c95c4a4bdf1700bd265f7dea17a3
+      params:
+        file_format: yml
+    - file: decidim-admin/config/locales/*.yml
+      project_id: f8b78b0c85e71382cd391b1e8a4947f6
+      params:
+        file_format: yml
+  pull:
+    targets:
+    - file: decidim-core/config/locales/<locale_name>.yml
+      project_id: 9107c95c4a4bdf1700bd265f7dea17a3
+      params:
+        file_format: yml
+    - file: decidim-admin/config/locales/<locale_name>.yml
+      project_id: f8b78b0c85e71382cd391b1e8a4947f6
+      params:
+        file_format: yml
