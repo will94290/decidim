@@ -110,7 +110,15 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - api_core
-      - admin_meetings
-      - proposals_comments
-      - others
+      - api_core:
+          requires:
+            - build
+      - admin_meetings:
+          requires:
+            - build
+      - proposals_comments:
+          requires:
+            - build
+      - others:
+          requires:
+            - build
