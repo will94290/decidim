@@ -42,6 +42,7 @@ jobs:
           at: /tmp/workspace
       - run:
           command: |
+            (cd /tmp/workspace/decidim && bundle exec rake db:create db:schema:load) &&
             (cd /tmp/workspace/decidim && yarn lint && bundle exec rspec spec) &&
             (cd /tmp/workspace/decidim && yarn test -- decidim-api) &&
             (cd /tmp/workspace/decidim/decidim-api && bundle exec rake) &&
@@ -53,9 +54,10 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /tmp/workspace/decidim
+          at: /tmp/workspace
       - run:
           command: |
+            (cd /tmp/workspace/decidim && bundle exec rake db:create db:schema:load) &&
             (cd /tmp/workspace/decidim && yarn test -- decidim-admin) &&
             (cd /tmp/workspace/decidim/decidim-admin && bundle exec rake) &&
             (cd /tmp/workspace/decidim && yarn test -- decidim-meetings) &&
@@ -66,9 +68,10 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /tmp/workspace/decidim
+          at: /tmp/workspace
       - run:
           command: |
+            (cd /tmp/workspace/decidim && bundle exec rake db:create db:schema:load) &&
             (cd /tmp/workspace/decidim && yarn test -- decidim-proposals) &&
             (cd /tmp/workspace/decidim/decidim-proposals && bundle exec rake) &&
             (cd /tmp/workspace/decidim && yarn test -- decidim-comments) &&
@@ -79,9 +82,10 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /tmp/workspace/decidim
+          at: /tmp/workspace
       - run:
           command: |
+            (cd /tmp/workspace/decidim && bundle exec rake db:create db:schema:load) &&
             (cd /tmp/workspace/decidim && yarn test -- decidim-pages) &&
             (cd /tmp/workspace/decidim/decidim-pages && bundle exec rake) &&
             (cd /tmp/workspace/decidim && yarn test -- decidim-system) &&
