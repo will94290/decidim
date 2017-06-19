@@ -9,7 +9,6 @@ jobs:
       - image: postgres
         environment:
           POSTGRES_USER: postgres
-    parallelism: 4
     working_directory: /code
     steps:
       - run:
@@ -32,6 +31,15 @@ jobs:
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   api_core:
+    docker:
+      - image: codegram/decidim
+        environment:
+          SIMPLECOV: true
+          DATABASE_USERNAME: postgres
+      - image: postgres
+        environment:
+          POSTGRES_USER: postgres
+    working_directory: /code
     steps:
       - run:
         command: |
@@ -41,6 +49,15 @@ jobs:
           (cd /code && yarn test -- decidim-core) &&
           (cd /code/decidim-core && bundle exec rake)
   admin_meetings:
+    docker:
+      - image: codegram/decidim
+        environment:
+          SIMPLECOV: true
+          DATABASE_USERNAME: postgres
+      - image: postgres
+        environment:
+          POSTGRES_USER: postgres
+    working_directory: /code
     steps:
       - run:
         command: |
@@ -49,6 +66,15 @@ jobs:
           (cd /code && yarn test -- decidim-meetings) &&
           (cd /code/decidim-meetings && bundle exec rake)
   proposals_comments:
+    docker:
+      - image: codegram/decidim
+        environment:
+          SIMPLECOV: true
+          DATABASE_USERNAME: postgres
+      - image: postgres
+        environment:
+          POSTGRES_USER: postgres
+    working_directory: /code
     steps:
       - run:
         command: |
@@ -57,6 +83,15 @@ jobs:
           (cd /code && yarn test -- decidim-comments) &&
           (cd /code/decidim-comments && bundle exec rake)
   others:
+    docker:
+      - image: codegram/decidim
+        environment:
+          SIMPLECOV: true
+          DATABASE_USERNAME: postgres
+      - image: postgres
+        environment:
+          POSTGRES_USER: postgres
+    working_directory: /code
     steps:
       - run:
         command: |
