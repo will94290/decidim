@@ -34,7 +34,7 @@ module Decidim
 
     def detect_current_feature(params)
       @participatory_space.features.find do |feature|
-        params["feature_id"] == feature.id.to_s && feature.manifest_name == @manifest.name.to_s
+        params["feature_slug"] == feature.slug && feature.manifest_name == @manifest.name.to_s
       end
     end
   end

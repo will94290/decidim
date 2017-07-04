@@ -16,7 +16,7 @@ module Decidim
           resource :assembly_widget, only: :show, path: "embed"
         end
 
-        scope "/assemblies/:assembly_id/f/:feature_id" do
+        scope "/assemblies/:assembly_id/:feature_slug" do
           Decidim.feature_manifests.each do |manifest|
             next unless manifest.engine
 

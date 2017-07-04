@@ -12,7 +12,9 @@ module Decidim
       isolate_namespace Decidim::Budgets
 
       routes do
-        resources :projects, only: [:index, :show]
+        resources :projects, only: [:index, :show], path: ""
+
+        # TODO: check this path
         resource :order, only: [:destroy] do
           member do
             post :checkout

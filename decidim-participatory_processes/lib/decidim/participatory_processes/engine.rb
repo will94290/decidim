@@ -18,7 +18,7 @@ module Decidim
           resource :participatory_process_widget, only: :show, path: "embed"
         end
 
-        scope "/processes/:participatory_process_id/f/:feature_id" do
+        scope "/processes/:participatory_process_id/:feature_slug" do
           Decidim.feature_manifests.each do |manifest|
             next unless manifest.engine
 

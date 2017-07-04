@@ -37,7 +37,7 @@ module Decidim
 
         context "when the params contain a feature id" do
           before do
-            params["feature_id"] = feature.id.to_s
+            params["feature_slug"] = feature.slug
           end
 
           context "when the feature doesn't belong to the participatory process" do

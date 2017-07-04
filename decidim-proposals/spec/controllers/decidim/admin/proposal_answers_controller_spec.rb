@@ -22,7 +22,7 @@ module Decidim
           {
             id: proposal.id,
             proposal_id: proposal.id,
-            feature_id: feature.id,
+            feature_slug: feature.slug,
             participatory_process_id: feature.participatory_space.id,
             state: "rejected"
           }

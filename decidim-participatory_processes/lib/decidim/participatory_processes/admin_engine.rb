@@ -53,7 +53,7 @@ module Decidim
           end
         end
 
-        scope "/participatory_processes/:participatory_process_id/features/:feature_id/manage" do
+        scope "/participatory_processes/:participatory_process_id/:feature_slug/manage" do
           Decidim.feature_manifests.each do |manifest|
             next unless manifest.admin_engine
 

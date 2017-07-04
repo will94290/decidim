@@ -11,7 +11,15 @@ module Decidim
       let(:participatory_process) { feature.participatory_space }
       let(:feature) { proposal.feature }
 
-      let!(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_space: participatory_process) }
+      let!(:meetings_feature) do
+        create(
+          :feature,
+          manifest_name: "meetings",
+          name: { en: 'Anual Meetings' },
+          participatory_space: participatory_process
+        )
+      end
+
       let(:meetings) { create_list(:meeting, 2, feature: meetings_feature) }
 
       before do
@@ -71,7 +79,7 @@ module Decidim
 
         it "serializes the meetings" do
           expect(serialized[:meeting_urls].length).to eq(2)
-          expect(serialized[:meeting_urls].first).to match(%r{http.*/meetings})
+          expect(serialized[:meeting_urls].first).to match(%r{http.*/anual-meetings})
         end
       end
     end

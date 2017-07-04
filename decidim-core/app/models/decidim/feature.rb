@@ -22,6 +22,12 @@ module Decidim
       Decidim.find_feature_manifest(manifest_name)
     end
 
+    # Public: Returns a name for this feature to be used in URLs
+    #
+    def slug
+      name[organization.default_locale].parameterize
+    end
+
     # Public: Assigns a manifest to this feature.
     #
     # manifest - The FeatureManifest for this Feature.
@@ -45,7 +51,7 @@ module Decidim
     def mounted_params
       {
         host: organization.host,
-        feature_id: id,
+        feature_slug: slug,
         participatory_space.foreign_key.to_sym => participatory_space.id
       }
     end

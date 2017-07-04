@@ -47,7 +47,7 @@ module Decidim
 
         context "when the feature doesn't belong to the participatory space" do
           before do
-            params["feature_id"] = feature.id.to_s
+            params["feature_slug"] = feature.slug
           end
 
           let(:feature) { create(:feature) }
@@ -59,7 +59,7 @@ module Decidim
 
         context "when the feature belongs to the participatory space" do
           before do
-            params["feature_id"] = feature.id.to_s
+            params["feature_slug"] = feature.slug
           end
 
           let(:feature) { create(:feature, participatory_space: current_participatory_process) }

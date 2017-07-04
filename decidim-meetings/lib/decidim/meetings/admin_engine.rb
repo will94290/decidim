@@ -11,7 +11,7 @@ module Decidim
       paths["db/migrate"] = nil
 
       routes do
-        resources :meetings do
+        resources :meetings, path: "" do
           resources :meeting_closes, only: [:edit, :update]
           resource :registrations, only: [:edit, :update] do
             collection do

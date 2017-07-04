@@ -41,7 +41,7 @@ module Decidim
           end
         end
 
-        scope "/assemblies/:assembly_id/features/:feature_id/manage" do
+        scope "/assemblies/:assembly_id/features/:feature_slug/manage" do
           Decidim.feature_manifests.each do |manifest|
             next unless manifest.admin_engine
 

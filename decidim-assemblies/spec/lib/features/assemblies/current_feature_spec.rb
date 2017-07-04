@@ -26,15 +26,15 @@ module Decidim
           params["assembly_id"] = current_assembly.id.to_s
         end
 
-        context "when the params don't contain a feature id" do
+        context "when the params don't contain a feature slug" do
           it "doesn't match" do
             expect(subject.matches?(request)).to eq(false)
           end
         end
 
-        context "when the params contain a feature id" do
+        context "when the params contain a feature slug" do
           before do
-            params["feature_id"] = feature.id.to_s
+            params["feature_slug"] = feature.slug
           end
 
           context "when the feature doesn't belong to the assembly" do
@@ -74,7 +74,7 @@ module Decidim
 
         context "when there's feature" do
           before do
-            params["feature_id"] = "1"
+            params["feature_slug"] = "my-meetings"
           end
 
           it "doesn't match" do

@@ -17,7 +17,7 @@ module Decidim
 
       let(:params) do
         {
-          feature_id: feature.id,
+          feature_slug: feature.slug,
           participatory_process_id: feature.participatory_space.id
         }
       end
