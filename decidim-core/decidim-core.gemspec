@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 5.1.3"
   s.add_dependency "rails-i18n"
   s.add_dependency "devise", "~> 4.3"
-  s.add_dependency "devise-i18n", "~> 1.2.0"
   s.add_dependency "invisible_captcha", "~> 0.9.2"
   s.add_dependency "rectify", "~> 0.10.0"
   s.add_dependency "sassc-rails", "~> 1.3.0"
