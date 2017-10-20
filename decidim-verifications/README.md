@@ -59,8 +59,8 @@ Decidim implements two type of authorization methods:
 
   Inside these engines, you can implement any steps required for the
   authorization to succeed, via one or more custom controllers and views. You
-  can create partial `Authorization` records (with the `verified_at` column set
-  to `nil`) and hold partial verification data in the `verification_metadata`
+  can create partial `Authorization` records (with the `verified` column set
+  to `false`) and hold partial verification data in the `verification_metadata`
   column, or even a partial verification attachment in the
   `verification_attachment` column.
 
